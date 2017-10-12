@@ -10,6 +10,9 @@ mongoose.connection
     console.warn('Warning', error);
   });
 
-beforeEach(() => {
-  mongoose.connection.collections.users.drop();
+beforeEach(done => {
+  mongoose.connection.collections.users.drop(() => {
+    // Ready to run the next test
+    done();
+  });
 });
