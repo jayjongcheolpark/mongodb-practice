@@ -1,5 +1,5 @@
 const assert = require('assert');
-const User = require('../src/suer');
+const User = require('../src/user');
 
 describe('Reading users out of the database', () => {
   let joe;
@@ -10,7 +10,11 @@ describe('Reading users out of the database', () => {
       .then(() => done());
   });
 
-  it('finds all users out of the database', () => {
-
+  it('finds all users out of the database', done => {
+    User.find({ name: 'Joe' })
+      .then(users => {
+        console.log(users);
+        done();
+      });
   });
 });
