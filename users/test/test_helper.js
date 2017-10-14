@@ -3,9 +3,10 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 before(done => {
+  // Set up default mongoose connection
   const uri = 'mongodb://localhost/users_test';
-  mongoose.connect(uri, {
-      userMongoClient: true,
+  var promise = mongoose.connect(uri, {
+      userMongoClient: true
   });
 
   mongoose.connection
