@@ -8,7 +8,7 @@ before(done => {
   var promise = mongoose.connect(uri, {
       userMongoClient: true
   });
-
+  
   mongoose.connection
     .once('open', () => done())
     .on('error', (error) => {
