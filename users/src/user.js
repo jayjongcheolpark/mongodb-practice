@@ -14,8 +14,9 @@ const UserSchema = new Schema({
   posts: [PostSchema]
 });
 
+// we cannot use fat arrow function because of this scope
 UserSchema.virtual('postCount').get(function() {
-
+  return this.posts.length;
 });
 
 const User = mongoose.model('user', UserSchema);
